@@ -1,1 +1,19 @@
-<p>hangman works!</p>
+<div class="hangman-display">
+    <img src="../../assets/img/hangman/hangman_{{wrong_attempt}}.png">
+</div>
+
+<div class="hangman-info">
+    <section class="button-row" >
+        <button mat-button *ngFor="let button of display_word">{{button}}</button>
+    </section>
+</div>
+
+
+
+<div class="keyboard">
+    <mat-divider></mat-divider>
+    <section class="button-row" *ngFor="let row of keyboard_layout">
+        <button mat-raised-button *ngFor="let button of getButtonArray(row)" (click)="useLetter(button)" [disabled]="isDisabledLetter(button)">{{button}}</button>
+    </section>
+    <mat-divider></mat-divider>
+</div>

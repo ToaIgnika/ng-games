@@ -1,0 +1,27 @@
+.button-row {
+    display: inline-block;
+    padding: 0px;
+}
+
+button {
+    margin: 2px;
+}
+
+section {
+    display: table;
+}
+
+.keyboard {
+    text-align: center;
+}
+
+.hangman-info {
+    text-align: center;
+}
+
+.hangman-display {
+    text-align: center;
+    img {
+        height: calc(100vh - 240px);
+    }
+}
