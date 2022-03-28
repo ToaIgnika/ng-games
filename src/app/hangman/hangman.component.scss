@@ -23,5 +23,7 @@ section {
     text-align: center;
     img {
         height: calc(100vh - 240px);
+        border: 1px rgba(0,0,0,.12) solid;
+        margin-top: 4px;
     }
 }
