@@ -1,0 +1,11 @@
+.board {
+    width: calc(100vh - 200px);
+}
+
+img {
+    width: calc((100vh - 132px)/4 );
+}
+
+.mat-grid-tile {
+    border: 1px rgba(0,0,0,.12) solid;
+}
