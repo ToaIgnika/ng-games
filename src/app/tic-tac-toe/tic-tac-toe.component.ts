@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ResultDialogComponent } from './dialogs/result-dialog/result-dialog.component';
 
 @Component({
   selector: 'app-tic-tac-toe',
@@ -15,18 +17,21 @@ export class TicTacToeComponent implements OnInit {
   turn = 'x'
   turn_number = 1
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   makeMove(i:number, j:number) {
     this.board_layout[i][j]=this.turn
-    if (this.checkWin(i,j) || this.turn_number == 9) {
-      alert('game over!')
+    if (this.checkWin(i,j)) {
+      this.openResult(false, this.turn)
       // game over! this.turn wins
       this.newGame()
-    } else {
+    } else if (this.turn_number == 9) {
+      this.openResult(true)
+    }
+    else {
       this.turn = this.turn == 'x' ? 'o' : 'x'
       this.turn_number++
     }
@@ -40,10 +45,21 @@ export class TicTacToeComponent implements OnInit {
     if (row_result || col_result) {
       // console.log('true')
       return true
-    } else {
-      // console.log('false')
-      return false
+    } 
+
+    if (this.board_layout[0][0] == this.turn &&
+    this.board_layout[1][1] == this.turn &&
+    this.board_layout[2][2] == this.turn) {
+      return true;
     }
+    
+    if (this.board_layout[0][2] == this.turn &&
+    this.board_layout[1][1] == this.turn &&
+    this.board_layout[2][0] == this.turn) {
+      return true;
+    }
+ 
+    return false;
   }
 
 
@@ -55,6 +71,12 @@ export class TicTacToeComponent implements OnInit {
       [' ', ' ', ' '],
       [' ', ' ', ' ']
     ]
+  }
+
+  openResult(isDraw: boolean, winner: String = '') {
+    this.dialog.open(ResultDialogComponent, {data: {isDraw: isDraw, winner: winner}, width: '450px'}).afterClosed().subscribe(result => {
+      this.newGame()
+    })
   }
 
 }

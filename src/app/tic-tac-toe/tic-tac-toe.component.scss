@@ -1,5 +1,6 @@
 .board {
-    width: calc(100vh - 200px);
+    text-align: center;
+    margin-top: 16px;
 }
 
 img {
@@ -8,4 +9,14 @@ img {
 
 .mat-grid-tile {
     border: 1px rgba(0,0,0,.12) solid;
+}
+
+.board-row {
+    display: inline-flex;
+    // width: inherit;
+    button {
+        width: calc((100vh - 132px)/3 );
+        height: calc((100vh - 132px)/3 );
+        font-size: calc((100vh - 132px)/4 );
+    }
 }

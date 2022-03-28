@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{data.isDraw ? 'It\'s a draw!' : 'We have a winner!'}}</h2>
+<mat-dialog-content>
+    <div *ngIf="!data.isDraw">
+        <h4>Game winner:</h4>
+        <p>
+            <img src="../../../../assets/img/tic-tac-toe/{{data.winner=='x' ? 'x.png' : 'o.png'}}" alt="winner">
+        </p>
+    </div>
+    <div *ngIf="data.isDraw">
+        <h4>You did well. Try again.</h4>
+        <p>
+            <img src="../../../../assets/img/tic-tac-toe/o.png" alt="" width="175px">
+            <img src="../../../../assets/img/tic-tac-toe/x.png" alt="" width="175px">
+        </p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Play again</button>
+</mat-dialog-actions>
