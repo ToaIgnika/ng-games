@@ -1,9 +1,8 @@
 <h2 mat-dialog-title>{{data.result ? 'Well done!' : 'Close enough'}}</h2>
 <mat-dialog-content>
+    <h4>Correct word:</h4>
     <h3>{{data.word}}</h3>
-    <p><strong>Definition:</strong>{{data.definition}}</p>
-    <p><strong>Origin:</strong>{{data.origin}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Try again</button>
-  </mat-dialog-actions>
+    <button mat-stroked-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Try again</button>
+</mat-dialog-actions>

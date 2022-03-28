@@ -20,14 +20,10 @@ export class HangmanComponent implements OnInit {
   ]
 
   word_url = 'https://random-word-api.herokuapp.com/word?number=1'
-  dictionary_url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
   wrong_attempt = 0
   word: String[] = []
   display_word: String[] = []
   disabled_letters: String[] = []
-  word_origin = ''
-  word_description = ''
-
   
 
   constructor(private http: HttpClient, public dialog: MatDialog) { 
@@ -55,7 +51,7 @@ export class HangmanComponent implements OnInit {
       }
     } else {
       this.wrong_attempt++
-      if (this.wrong_attempt == 5) {
+      if (this.wrong_attempt == 6) {
         this.openResult(false, this.word.join(''))
       }
     }
@@ -75,19 +71,12 @@ export class HangmanComponent implements OnInit {
       this.display_word = Array(this.word.length).fill('_')
       this.disabled_letters = []
       this.wrong_attempt = 0
-      this.getWordInfo().subscribe(dic => {
-        if (dic) {
-        }
-      })
     })
   }
 
-  getWordInfo() {
-    return this.http.get<String[]>(this.dictionary_url+this.word.join(''));
-  }
 
   openResult(result: boolean, word: String) {
-    this.dialog.open(ResultDialogComponent, {data: {result: result, word: word, origin: this.word_origin, definition: this.word_description}}).afterClosed().subscribe(result => {
+    this.dialog.open(ResultDialogComponent, {data: {result: result, word: word}, width: '300px'}).afterClosed().subscribe(result => {
       this.getNewWord()
     })
   }
