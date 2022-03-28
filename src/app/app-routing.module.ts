@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'tic-tac-toe',
     loadChildren: () => import('./tic-tac-toe/tic-tac-toe.module').then(m => m.TicTacToeModule)
+  },
+  {
+    path: 'picture-slider',
+    loadChildren: () => import('./picture-slider/picture-slider.module').then(m => m.PictureSliderModule)
   }
 ];
 
