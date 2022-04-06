@@ -1,0 +1,12 @@
+.grid-div {
+    width: calc(100vw - 400px);
+    // height: calc(100vh - 100px);
+    margin: auto;
+    margin-top: 4px;
+}
+
+img {
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+}
+

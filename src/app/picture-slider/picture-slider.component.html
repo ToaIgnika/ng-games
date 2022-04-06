@@ -1,2 +1,7 @@
-<p>picture-slider works!</p>
-
+<div class="grid-div">
+    <mat-grid-list cols="4" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let i of imgIndexX; let ind = index" (click)="moveSquare(ind)">
+            <img  src="../../assets/img/picture-slider/image_part_{{i}}.jpg" alt="">
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>
