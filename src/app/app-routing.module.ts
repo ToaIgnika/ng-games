@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'picture-slider',
     loadChildren: () => import('./picture-slider/picture-slider.module').then(m => m.PictureSliderModule)
+  },
+  {
+    path: 'blackjack',
+    loadChildren: () => import('./blackjack/blackjack.module').then(m => m.BlackjackModule)
   }
 ];
 
