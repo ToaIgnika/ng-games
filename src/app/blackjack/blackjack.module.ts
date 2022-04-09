@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BlackjackRoutingModule } from './blackjack-routing.module';
 import { BlackjackComponent } from './blackjack.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { BlackjackComponent } from './blackjack.component';
   ],
   imports: [
     CommonModule,
-    BlackjackRoutingModule
+    BlackjackRoutingModule,
+    MaterialModule
   ]
 })
 export class BlackjackModule { }
