@@ -1,12 +1,10 @@
 <div class="blackjack-display">
-    <h3>Dealer</h3>
-    <img src="../../assets/img/blackjack/ace_of_clubs.png" alt="Card" width="100px" class="cardback">
-    <img src="../../assets/img/blackjack/cardback.png" alt="Card" width="100px" class="cardback">
+    <h3>Dealer: {{dealer_score}}</h3>
+    <img *ngFor="let card of player_deck" src="../../assets/img/blackjack/{{card}}.png" alt="Card" width="100px" class="cardback">
 
-    <h3>Player</h3>
-    <img src="../../assets/img/blackjack/ace_of_clubs.png" alt="Card" width="100px" class="cardback">
-    <img src="../../assets/img/blackjack/ace_of_diamonds.png" alt="Card" width="100px" class="cardback">
-    <br>
-    <button mat-raised-button color="primary">Hit</button>
-    <button mat-raised-button color="primary">Stand</button>
+    <h3>Player: {{player_score}}</h3>
+     <br>
+    <button mat-raised-button color="primary" (click)="dealCard()">Hit</button>
+    <button mat-raised-button color="primary" (click)="stand()">Stand</button>
+    <button mat-raised-button color="primary" (click)="restart()">New Game</button>
 </div>
